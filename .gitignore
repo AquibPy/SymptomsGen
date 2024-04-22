@@ -1,0 +1,3 @@
+__pycache__/
+venv/
+GPT_model/model.pt
