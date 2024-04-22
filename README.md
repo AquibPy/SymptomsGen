@@ -28,7 +28,7 @@ This script will load the fine-tuned model and tokenizer, and generate text base
 
 #### FastAPI
 
-You can also use the fine-tuned model for inference via a FastAPI application. Run the `app.py` script:
+You can also use the fine-tuned model for inference via a FastAPI apilication. Run the `api.py` script:
 
 This will start the FastAPI server at `http://localhost:8080`. You can send a POST request to `http://localhost:8080/symptoms` with either form data or JSON data to generate text based on the provided input string.
 
@@ -45,8 +45,9 @@ To send JSON data, make a POST request to `http://localhost:8080/generate` with 
     "disease_name": "Kidney Failure"
 }
 
-Both requests will return the generated text as a JSON response with the Symptoms key.
 ```
+
+Both requests will return the generated text as a JSON response with the Symptoms key.
 
 ## Dependencies
 
@@ -74,9 +75,28 @@ Replace 'path/to/tokenizer' and 'path/to/model.pt' with the actual paths to your
 * data.py : Thi sscript is used to preprocess the dataset before training the model.
 * train.py: Contains the code for fine-tuning the model.
 * inference.py: Contains the code for generating text using the fine-tuned model.
-* app.py: Contains the FastAPI application for inference.
+* api.py: Contains the FastAPI apilication for inference.
 * config.py: Stores the paths to the locally saved tokenizer and pre-trained model files.
 * README.md: This file, providing an overview of the project.
+
+## Docker
+
+The project includes a Dockerfile that you can use to build a Docker image for the SymptomsGen application. The Dockerfile sets up the necessary environment, installs project dependencies, and configures the FastAPI application to run on port 8080.
+
+To build the Docker image, make sure you have a `requirements.txt` file listing all the Python dependencies required for your project. Then, run the following command:
+
+```docker
+docker build -t symptomsgen .
+```
+
+After the image is built, you can run a container from the image with the following command:
+
+```docker
+docker run -p 8080:8080 symptomsgen
+```
+
+This command will start a container from the `symptomsgen` image and map the container's port 8080 to the host's port 8080. You should now be able to access your FastAPI application at `http://localhost:8080`.
+
 
 ## Acknowledgments
 
