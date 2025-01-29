@@ -34,11 +34,11 @@ This will start the FastAPI server at `http://localhost:8080`. You can send a PO
 
 ##### Form Data
 
-To send form data, make a POST request to `http://localhost:8080/generate` with the form data containing the `input_str` field.
+To send form data, make a POST request to `http://localhost:8080/symptoms` with the form data containing the `input_str` field.
 
 ##### JSON Data
 
-To send JSON data, make a POST request to `http://localhost:8080/generate` with a JSON payload like this:
+To send JSON data, make a POST request to `http://localhost:8080/symptoms` with a JSON payload like this:
 
 ```json
 {
